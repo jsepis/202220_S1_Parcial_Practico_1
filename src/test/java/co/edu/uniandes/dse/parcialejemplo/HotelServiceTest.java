@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.hibernate.event.spi.EntityCopyObserver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -55,7 +54,7 @@ public class HotelServiceTest {
             entityManager.persist(hotelEntity);
             hotelList.add(hotelEntity);
         }
-        
+    }   
     @Test
     void testCreateHoteles() throws IllegalOperationException {
         HotelEntity newEntity = factory.manufacturePojo(HotelEntity.class);
