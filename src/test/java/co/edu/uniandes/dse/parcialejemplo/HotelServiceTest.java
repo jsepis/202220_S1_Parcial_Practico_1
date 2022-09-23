@@ -59,6 +59,7 @@ public class HotelServiceTest {
     void testCreateHoteles() throws IllegalOperationException {
         HotelEntity newEntity = factory.manufacturePojo(HotelEntity.class);
         newEntity.setNombre("Las acacias");
+        newEntity.setEstrellas("4");
         HotelEntity result = hotelService.createHotel(newEntity);
         assertNotNull(result);
         HotelEntity entity = entityManager.find(HotelEntity.class, result.getId());
