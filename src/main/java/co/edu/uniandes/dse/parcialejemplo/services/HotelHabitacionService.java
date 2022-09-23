@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
-import javax.websocket.server.ServerEndpoint;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +35,7 @@ public class HotelHabitacionService {
         Optional<HabitacionEntity> habitacionEntity = habitacionRepository.findById(habitacionId);
         if (habitacionEntity.isEmpty())
             throw new EntityNotFoundException("Habitacion no encontrada");
-            
+
         habitacionEntity.get().setHotel(hotelEntity.get());
         log.info("Termina el proceso de anadirle una habitacion a el hotel con id = {0}", hotelId);
 		return habitacionEntity.get();
