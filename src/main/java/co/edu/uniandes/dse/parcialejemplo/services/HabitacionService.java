@@ -24,9 +24,7 @@ public class HabitacionService {
 
     public HabitacionEntity createHabitacion(Long hotelId, HabitacionEntity habitacionEntity ) throws EntityNotFoundException, IllegalOperationException{
         log.info("Inicia proceso de creacion de habitacion");
-        Optional<HotelEntity> hotelEntity = hotelRepository.findById(hotelId);
-        if (hotelEntity.isEmpty())
-            throw new EntityNotFoundException("Hotel no encontrado");
+        
 
         if(habitacionEntity.getIdentificacion() > habitacionEntity.getNum_camas())
             throw new IllegalOperationException("El numero de identificion es mayor al numero de camas");
